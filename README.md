@@ -19,12 +19,14 @@ Initialization ::::
 npm install -g json-server
 json-server --watch db.json
 
-  Resources
+  Resources:::
+  
   http://localhost:3000/posts
   
   http://localhost:3000/comments
   
   http://localhost:3000/profile
 
-  Home
+  Home:::
+  
   http://localhost:3000
