@@ -57,4 +57,28 @@ public class TestAPI {
 		System.out.println("The result of getting user's details: " + response.asPrettyString());
 		System.out.println("________________________________________________________________");
 	}
+	
+	/**
+	 * Method: This method is used to Update Certain user's details
+	 */
+	@Test
+	public void putMethod() {
+		System.out.println("\n****For Put Request****");
+		
+		RequestSpecification httpRequest2 = RestAssured.given().baseUri(uri);
+		httpRequest2.header("Content-Type","application/json");   //for Put Method: We need to specify changes in the body 
+		httpRequest2.body("{\r\n"
+				+ "        \"id\": 2,\r\n"
+				+ "        \"title\": \"Rest API-Assured Java library_Raj\"\r\n"
+				+ "    }");
+		
+		//Passing the request "Put"
+		Response response = httpRequest2.request(Method.PUT, "/posts/2");     //Passing id of user
+		
+		//Printing the Status and response of server
+		System.out.println("The result of status code is : " + response.getStatusCode());
+		System.out.println("The response Time has taken : " + response.getTime());
+		System.out.println("The result of updating user's details: " + response.asPrettyString());
+		System.out.println("________________________________________________________________");
+	}
 }
