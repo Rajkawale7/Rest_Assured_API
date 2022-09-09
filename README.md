@@ -21,7 +21,9 @@ json-server --watch db.json
 
   Resources
   http://localhost:3000/posts
+  
   http://localhost:3000/comments
+  
   http://localhost:3000/profile
 
   Home
