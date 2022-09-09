@@ -106,4 +106,30 @@ public class TestAPI {
 		System.out.println("The result of updating user's Partial details: " + response.asPrettyString());
 		System.out.println("________________________________________________________________");
 	}
+	
+	/**
+	 * Method: This method is used to Delet the User entry
+	 */
+	@Test
+	public void deletMethod() {
+		System.out.println("\n****For Delet Request****");
+		
+		RequestSpecification httpRequest4 = RestAssured.given().baseUri(uri);
+		
+		//Passing the request "Patch"
+		httpRequest4.header("Content-Type","application/json");
+		httpRequest4.body("{\r\n"
+				+ "        \"id\": 5,\r\n"
+				+ "        \"title\": \"Java\",\r\n"
+				+ "        \"author\": \"RajKawale\"\r\n"
+				+ "    }");
+
+		Response response = httpRequest4.request(Method.DELETE, "/posts/5");   //Passing id of user
+	
+		//Printing the Status and response of server
+		System.out.println("The result of status code is : " + response.getStatusCode());
+		System.out.println("The response Time has taken : " + response.getTime());
+		System.out.println("The result of Deleting user's entry: " + response.asPrettyString() + "-Blank-");
+		System.out.println("________________________________________________________________");
+	}
 }
