@@ -81,4 +81,29 @@ public class TestAPI {
 		System.out.println("The result of updating user's details: " + response.asPrettyString());
 		System.out.println("________________________________________________________________");
 	}
+	
+	/**
+	 * Method: This method is used to do partially Update in Certain user's details
+	 */
+	
+	@Test
+	public void patchMethod() {
+		System.out.println("\n****For Patch Request****");
+		
+		RequestSpecification httpRequest3 = RestAssured.given().baseUri(uri);
+		//for Patch Method: We need to specify changes in the body
+		httpRequest3.header("Content-Type","application/json");
+		httpRequest3.body("{\r\n"
+				+ "        \"author\": \"Raj_kawale\"\r\n"
+				+ "    }");
+		
+		//Passing the request "Patch"
+		Response response = httpRequest3.request(Method.PATCH, "/posts/1");     //Passing id of user
+		
+		//Printing the Status and response of server
+		System.out.println("The result of status code is : " + response.getStatusCode());
+		System.out.println("The response Time has taken : " + response.getTime());
+		System.out.println("The result of updating user's Partial details: " + response.asPrettyString());
+		System.out.println("________________________________________________________________");
+	}
 }
