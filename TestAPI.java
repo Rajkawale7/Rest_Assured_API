@@ -39,4 +39,22 @@ public class TestAPI {
 		System.out.println("The Result of Creating response is: " + response.asPrettyString());
 		System.out.println("________________________________________________________________");
 	}
+	
+	/**
+	 * Method: This method is used to fetch certain user's details
+	 */
+	@Test
+	public void getMethod() {
+		System.out.println("\n****For Get Request****");
+		
+		RequestSpecification httpRequest1 = RestAssured.given().baseUri(uri);
+		Response response = httpRequest1.request(Method.GET, "/posts/");
+		
+		//Printing the Status and response of server
+		response.asPrettyString();
+		System.out.println("The result of status code is : " + response.getStatusCode());
+		System.out.println("The response Time has taken : " + response.getTime());
+		System.out.println("The result of getting user's details: " + response.asPrettyString());
+		System.out.println("________________________________________________________________");
+	}
 }
